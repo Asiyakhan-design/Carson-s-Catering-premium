@@ -29,4 +29,8 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 
 document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
-document.querySelector('#year').textContent = new Date().getFullYear();
+const footerYear = document.querySelector('#year');
+if (footerYear) {
+  footerYear.textContent = new Date().getFullYear();
+  footerYear.parentElement.textContent = `© ${new Date().getFullYear()} The Royal Feast. All rights reserved.`;
+}
